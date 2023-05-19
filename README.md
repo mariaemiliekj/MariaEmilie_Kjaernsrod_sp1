@@ -59,13 +59,14 @@ How to use this web application:
 
 ## Technical features 
 This web application cotains 4 main features: 
-**1.	Clock Function:**
+
+**1.	Clock function:**
 -	This section defines a clock function (updateTime) that updates the content of an HTML element with the current date and time.
 -	It uses the setInterval function to repeatedly call the updateTime function every second, ensuring that the displayed time is continuously updated.
 -	The current date and time are obtained using the Date object, and the elements of the date (day, month, year) and time (hours, minutes, seconds) are extracted and formatted into a string.
 -	The formatted time string is then set as the text content of an HTML element with the ID "clock".
 
-**2.	Scroll Button:**
+**2.	Scroll button:**
 -	This section adds a scroll-to-top button to a web page.
 -	The button is initially hidden and becomes visible when the user scrolls down the page.
 -	It uses the window.onscroll event to check the scroll position, and based on that, changes the display style of the button element to either "block" or "none".
@@ -77,17 +78,14 @@ This web application cotains 4 main features:
 -	The StaffMember class also includes a method (staffMemberIsLate) to check if a staff member is late based on their expected return time.
 -	The checkStaffMembersExpectedReturnTime function is called repeatedly using setInterval and checks if any staff members are late. If a staff member is late, it displays a toast notification with their information and provides an action button to send an email.
 -	The loadStaff function uses the Fetch API to retrieve random user data (name, picture, email) from the Random User API and creates StaffMember instances with the obtained data. The staff members are stored in an array and displayed in a table on the web page.
-
-**4.	Staff Out/In:**
--	These sections provide functionality to mark selected staff members as "Out" or "In" in the reception management dashboard.
 -	The staffOut function is called when the "Staff Out" button is clicked. It first checks if any staff members are selected, and if not, displays a dialog box informing the user to select at least one staff member. If staff members is selected, it prompts the user to enter a duration in minuts.
 -	The staffIn function is called when the "Staff In" button is clicked. It checks if any staff members are selected and updates their status, out time, duration, and expected return time accordingly.
 
 **5.	Schedule Delivery:**
-•	The provided code block offers functionality for scheduling deliveries for drivers and exhibiting the schedule in an easily readable table format.
-•	The addDelivery function triggers when the "Add Delivery" button is clicked. It captures the entered delivery details (vehicle type, name, surname, telephone numbers, address, estimated return time) from input fields, validates these details, and adds a new row to the delivery table accordingly.
-•	The clearFunction removes selected rows from the table, upon user confirmation. If no row is selected, a dialog box will inform the user to make a selection.
-•	For late deliveries, a toast notification will appear notifying the user. This is achieved by the checkDeliveryDriversExpectedReturnTime function, which checks if the driver's estimated return time has passed.
+-	The provided code block offers functionality for scheduling deliveries for drivers and exhibiting the schedule in an easily readable table format.
+-	The addDelivery function triggers when the "Add Delivery" button is clicked. It captures the entered delivery details (vehicle type, name, surname, telephone numbers, address, estimated return time) from input fields, validates these details, and adds a new row to the delivery table accordingly.
+-	The clearFunction removes selected rows from the table, upon user confirmation. If no row is selected, a dialog box will inform the user to make a selection.
+-	For late deliveries, a toast notification will appear notifying the user. This is achieved by the checkDeliveryDriversExpectedReturnTime function, which checks if the driver's estimated return time has passed.
 
 
 
@@ -132,12 +130,12 @@ scrollbutton.addEventListener("click", function() {
 });
 ```
 
-- Description:
-- Author: 
--  Date: 27.04.23
-- URL create element: https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
-- URL create element: https://www.w3schools.com/jsref/met_document_createelement.asp
-- URL EventListener: https://www.w3schools.com/jsref/met_document_addeventlistener.asp
+- Description: Creating a dialog container with javascript
+- Author: 1.developer.mozilla. 2 and 3.w3schools
+- Date: 27.04.23
+- 1. URL create element: https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+- 2. URL create element: https://www.w3schools.com/jsref/met_document_createelement.asp
+- 3. URL EventListener: https://www.w3schools.com/jsref/met_document_addeventlistener.asp
 ```javascript
  const dialogContainer = document.createElement("div");
     dialogContainer.classList.add("dialog-container");
