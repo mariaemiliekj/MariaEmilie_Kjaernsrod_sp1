@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WDT</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css">
+  <link rel="stylesheet" href="./css//wdt_app.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+</head>
+<body>
+  <button onclick="topFunction()" id="goTop" class="bi bi-caret-up-fill"></button>
+  <header>
+    <img src="photo/Logo.wdt.svg" alt="My Logo" style="position: fixed; top: 0.5vh; left: 0.5vw; width: 15%;">
+    <nav class="topnav" id="myTopnav">
+      <ul>
+        <li class="active" id="dash"><a href="http://127.0.0.1:5500">Dashboard</a></li>
+        <li>
+          <a href="#inv" id="inv">Inventory</a>
+          <ul>
+            <li><a href="#sea">Search</a></li>
+            <li><a href="#add">Add</a></li>
+            <li><a href="#rem">Remove</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#ord" id="ord">Orders</a>
+          <ul>
+            <li><a href="#sea2">Search</a></li>
+            <li><a href="#add2">Add</a></li>
+            <li><a href="#rem2">Remove</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Reception Management Dashboard Staff</h1>
+    <div class="row">
+      <table class="rounded-corners" id="dashboardStaff">
+        <thead>
+          <tr>
+            <th scope="col">Picture</th>
+            <th scope="col">Name</th>
+            <th scope="col">Surename</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Status</th>
+            <th scope="col">Out time</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Expected Return Time</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <button onclick="staffOut()" id="outBtn" class="clock-button clock-button-out">Out</button>
+      <button onclick="staffIn()" id="inBtn" class="clock-button clock-button-in">In</button>
+    </div>
+    <h1>Schedule Delivery</h1>
+    <div class="row">
+      <table class="rounded-corners" id="scheduleDelivery">
+        <thead>
+          <tr>
+            <th scope="col">Vehicle:</th>
+            <th scope="col">Name:</th>
+            <th scope="col">Surename:</th>
+            <th scope="col">Telephone:</th>
+            <th scope="col">Address:</th>
+            <th scope="col">Return time:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" id="vehicletype"></td>
+            <td><input type="text" id="name"></td>
+            <td><input type="text" id="surename"></td>
+            <td>
+              <div class="telephone-container">
+                <input type="text" id="telephone1" maxlength="3">
+                <span>-</span>
+                <input type="text" id="telephone2" maxlength="3">
+                <span>-</span>
+                <input type="text" id="telephone3" maxlength="3">
+              </div>
+            </td>
+            <td><input type="text" id="address"></td>
+            <td>
+              <div class="time-container">
+                <input type="text" id="returnTime1" maxlength="2">
+                <span>:</span>
+                <input type="text" id="returnTime2" maxlength="2">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <button onclick="addDelivery()" id="addBtn" class="add-button">Add</button>
+    </div>
+    <h1>Schedule Delivery</h1>
+    <div class="row">
+      <table class="rounded-corners" id="scheduleDelivery2">
+        <thead>
+          <tr>
+            <th scope="col">Vehicle:</th>
+            <th scope="col">Name:</th>
+            <th scope="col">Surename:</th>
+            <th scope="col">Telephone:</th>
+            <th scope="col">Address:</th>
+            <th scope="col">Return time:</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <button onclick="clearFunction()" id="clearBtn" class="clear-button">Clear</button>
+    </div>
+   <!-- Description:  creates a fixed position toast notification at the bottom x2.
+        Author: getbootstrap
+        Date: 04.05.23
+        URL: https://getbootstrap.com/docs/5.1/components/toasts/ -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Staff member is late</strong>
+          <small>A second ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          <img id="toastPicture" src="" alt="">
+          <div id="toastName"></div>
+          <div id="toastSureName"></div>
+          <div id="toastDuration"></div>
+          <button type="button" id="takeActionBtn" class="btn btn-primary btn-sm">Write email</button>
+        </div>
+      </div>
+    </div>
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+      <div id="ANDREToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Delivery driver is late</strong>
+          <small>A second ago</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          <div id="toastName2"></div>
+          <div id="toastSureName2"></div>
+          <div id="toastTelephone"></div>
+          <div id="toastReturn"></div>
+          <div id="toastAddress"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <img src="photo/Logo.wdt.white.svg" alt="logo white" class="logo2">
+    <span id="clock"></span>
+  </footer>
+  <script src="./js/wdt_app.js"></script>
+</body>
+
+</html>
